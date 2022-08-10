@@ -11,16 +11,15 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
-  # Windows cannot decode the 'charmap' codec byte 0x9d in position 721
-  skip: true  # [win]
+  number: 2
+  noarch: python
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
   run:
-    - python
+    - python >=3.6
 
 test:
   imports:
