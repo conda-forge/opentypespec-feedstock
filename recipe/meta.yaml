@@ -1,5 +1,5 @@
 {% set name = "opentypespec" %}
-{% set version = "1.9.1" %}
+{% set version = "1.9.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/opentypespec-{{ version }}.tar.gz
-  sha256: 7ce1079ad942905867d63c8803e0ac1c87ee77bc773cf6fb51642c9eb5720ea6
+  sha256: e63f3dacc0cac462cba0df3cfd3efe7b4c44f3f78e98a377783a56c5e9091a24
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   noarch: python
 
 requirements:
