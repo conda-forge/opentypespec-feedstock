@@ -1,0 +1,44 @@
+schema_version: 1
+
+context:
+  name: opentypespec
+  version: "1.9.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/opentypespec-${{ version }}.tar.gz
+  sha256: e63f3dacc0cac462cba0df3cfd3efe7b4c44f3f78e98a377783a56c5e9091a24
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      imports:
+        - opentypespec
+      pip_check: true
+      python_version: ${{ python_min }}
+
+about:
+  summary: Data derived from the OpenType specification
+  license: Apache-2.0
+  license_file:
+    - LICENSE
+  homepage: https://github.com/simoncozens/opentypespec-py
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
